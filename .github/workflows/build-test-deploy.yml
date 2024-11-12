@@ -10,6 +10,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - run: npm init
+      - run: npm init -y
+      - run: ls /home/runner/work/gh-actions/gh-actions
       - run: npm install
       - run: ls /home/runner/work/gh-actions/gh-actions
