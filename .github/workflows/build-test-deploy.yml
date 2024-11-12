@@ -11,6 +11,19 @@ jobs:
         with:
           node-version: '20.x'
       - run: npm init -y
-      - run: ls /home/runner/work/gh-actions/gh-actions
       - run: npm install
-      - run: ls /home/runner/work/gh-actions/gh-actions
+      - run: npm build
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: use node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - run: npm init -y
+      - run: npm install
+      - run: npm test
